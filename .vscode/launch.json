@@ -1,0 +1,14 @@
+{
+ "configurations": [
+  {
+   "type": "java",
+   "name": "Spring Boot-CurrencyExchangeServiceApplication<currency-exchange-service>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.currencyexchangeservice.CurrencyExchangeServiceApplication",
+   "projectName": "currency-exchange-service",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  }
+ ]
+}
