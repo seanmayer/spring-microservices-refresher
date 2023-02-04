@@ -8,6 +8,10 @@
 - Docker
 - Kubernetes
 
+## Load Balancing
+
+![Screenshot](readme/images/load-balancing.png)
+
 ## Issues
 ### Running multiple springboot microservice projects in VSCode
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.
