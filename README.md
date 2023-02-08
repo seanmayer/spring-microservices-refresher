@@ -12,9 +12,21 @@
 
 ![Screenshot](readme/images/microservices-overview-1.png)
 
+## Naming Server
+
+In a microservice architecture, a naming server serves as a registry for service discovery. Each microservice in the system has a unique name and runs on its own address, and the naming server maintains a mapping between the service names and their addresses. When a client wants to access a certain microservice, it can query the naming server to find the address of the service it needs. This eliminates the need for hard-coded addresses and allows for dynamic reconfiguration of the system as services come and go. The naming server plays a crucial role in the seamless functioning of a microservice-based system.
+
+![Screenshot](readme/images/naming-server.png)
+
 ## Load Balancing
 
-![Screenshot](readme/images/load-balancing.png)
+In a microservice architecture, a load balancer is an important component that sits between the client and the microservices. Its primary function is to distribute incoming requests to multiple instances of a microservice, improving system reliability and scalability.
+
+When a client makes a request, the load balancer routes it to one of the available instances of the target microservice. This helps to evenly distribute the incoming request load, avoid overloading any single instance, and prevent a single point of failure. In case an instance of the microservice fails, the load balancer can detect this and redirect requests to other healthy instances.
+
+By using a load balancer, microservice-based systems can dynamically scale up or down the number of instances of a service based on the incoming request volume, ensuring that the system remains responsive and resilient even under high load.
+
+![Screenshot](readme/images/load-balancer-and-naming-server.png)
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode
