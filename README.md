@@ -1,5 +1,10 @@
 # Spring Microservices Refresher
 
+- H2 Database - http://localhost:8080/h2-console
+- Naming server - http://localhost:8761/
+- Microservice 1 - http://localhost:8000/
+- Microservice 2 - http://localhost:8001/
+
 ## Introduction
 - Spring boot
 - Spring Cloud
@@ -17,6 +22,10 @@
 In a microservice architecture, a naming server serves as a registry for service discovery. Each microservice in the system has a unique name and runs on its own address, and the naming server maintains a mapping between the service names and their addresses. When a client wants to access a certain microservice, it can query the naming server to find the address of the service it needs. This eliminates the need for hard-coded addresses and allows for dynamic reconfiguration of the system as services come and go. The naming server plays a crucial role in the seamless functioning of a microservice-based system.
 
 ![Screenshot](readme/images/naming-server.png)
+
+In this example we use Eureka naming server.
+
+![Screenshot](readme/images/naming-server-eureka.png)
 
 ## Load Balancing
 
