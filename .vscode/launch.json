@@ -30,6 +30,28 @@
    "args": [
     "-Dserver.port=8001"
    ]
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-CurrencyConversionServiceApplication",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.currencyconversionservice.CurrencyConversionServiceApplication",
+   "projectName": "currency-conversion-service",
+   "vmArgs": "",
+   "env": {},
+   "args": []
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-NamingServerApplication",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.namingserver.NamingServerApplication",
+   "projectName": "naming-server",
+   "vmArgs": "",
+   "env": {},
+   "args": []
   }
  ]
 }
