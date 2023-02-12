@@ -1,6 +1,5 @@
 {
  "configurations": [
-
   {
    "type": "java",
    "name": "8000 Spring Boot-CurrencyExchangeServiceApplication<currency-exchange-service>",
@@ -51,6 +50,19 @@
    "projectName": "naming-server",
    "vmArgs": "",
    "env": {},
+   "args": []
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-ApiGatewayApplication<api-gateway>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.apigateway.ApiGatewayApplication",
+   "projectName": "api-gateway",
+   "vmArgs": "",
+   "env": {
+    "JAVA_OPTS": ""
+   },
    "args": []
   }
  ]
