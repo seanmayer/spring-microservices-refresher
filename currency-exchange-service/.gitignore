@@ -30,5 +30,5 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-
+.vscode/
 /readme/.DS_Store
