@@ -2,6 +2,7 @@
 
 - H2 Database - http://localhost:8080/h2-console
 - Naming server - http://localhost:8761/
+- Gateway - http://localhost:8765/
 - Microservice 1 - http://localhost:8000/
 - Microservice 2 - http://localhost:8001/
 
