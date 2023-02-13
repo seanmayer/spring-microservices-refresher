@@ -1,10 +1,14 @@
 # Spring Microservices Refresher
 
-- H2 Database - http://localhost:8080/h2-console
 - Naming server - http://localhost:8761/
-- Gateway - http://localhost:8765/
 - Microservice 1 - http://localhost:8000/
 - Microservice 2 - http://localhost:8001/
+- H2 Database - http://localhost:8080/h2-console
+- Gateway - http://localhost:8765
+  - http://localhost:8765/currency-exchange/currency-exchange/from/USD/to/INR
+  - http://localhost:8765/currency-conversion/currency-conversion/from/USD/to/INR/quantity/10
+  - http://localhost:8765/currency-conversion/currency-conversion-feign/from/USD/to/INR/quantity/10
+
 
 ## Introduction
 - Spring boot
