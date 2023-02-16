@@ -43,6 +43,28 @@ By using a load balancer, microservice-based systems can dynamically scale up or
 
 ![Screenshot](readme/images/load-balancer-and-naming-server.png)
 
+## API Gateway (Spring Cloud Gateway)
+
+An API gateway is a single entry point for all requests from clients to the backend services in a microservice architecture. It sits between the client and the microservices and routes requests to the appropriate microservice. It also provides a single place to apply common cross-cutting concerns such as security, monitoring, and resiliency.
+
+### Spring Cloud Gateway
+
+![Screenshot](readme/images/spring-cloud-gateway.png)
+
+- Simple effective way to route APIs
+- Provide cross-cutting concerns like:
+  - security
+  - monitoring/metrics
+  - resiliency
+- Built on top of Spring WebFlux framework(non-blocking, reactive)
+- Features:
+  - Matching routes on any request attribute
+  - Dynamic routing
+  - Predicates
+  - Filters
+  - Integrates with Spring Cloud DiscoveryClient (Load Balancing - Eureka, Consul, Zookeeper, etc)
+  - Path Rewriting
+
 ## Issues
 ### Running multiple springboot microservice projects in VSCode
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.
