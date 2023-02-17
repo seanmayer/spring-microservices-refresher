@@ -65,6 +65,25 @@ An API gateway is a single entry point for all requests from clients to the back
   - Integrates with Spring Cloud DiscoveryClient (Load Balancing - Eureka, Consul, Zookeeper, etc)
   - Path Rewriting
 
+## Circuit Breaker (Resilience4j)
+
+- The library is inspired by Hystrix 
+- but offers a much more convenient API and a number of other features:
+    - Rate Limiter (block too frequent requests)
+    - Bulkhead (avoid too many concurrent requests)
+    - Retry (automatically retry failed requests)
+    - Cache (avoid duplicate requests)
+    - Circuit Breaker (avoid cascading failures)
+    - Time Limiter (avoid too long running requests)
+    - Event Listeners (monitoring)
+
+![Screenshot](readme/images/resilience4j.png)
+
+### Testing endpoint with multiple requests using Apache Bench
+
+- Open terminal
+- Run `ab -n 1000 -c 100 http://localhost:8000/sample-api`
+
 ## Issues
 ### Running multiple springboot microservice projects in VSCode
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.
