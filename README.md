@@ -47,6 +47,16 @@ By using a load balancer, microservice-based systems can dynamically scale up or
 
 An API gateway is a single entry point for all requests from clients to the backend services in a microservice architecture. It sits between the client and the microservices and routes requests to the appropriate microservice. It also provides a single place to apply common cross-cutting concerns such as security, monitoring, and resiliency.
 
+## Docker
+
+- Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
+
+- A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
+
+- A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.
+
+![Screenshot](readme/images/docker.png)
+
 ### Spring Cloud Gateway
 
 ![Screenshot](readme/images/spring-cloud-gateway.png)
