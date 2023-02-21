@@ -57,6 +57,10 @@ An API gateway is a single entry point for all requests from clients to the back
 
 ![Screenshot](readme/images/docker.png)
 
+## Docker Architecture
+
+![Screenshot](readme/images/docker-architecture.png)
+
 ### Docker example commands
 
 - `docker ps` - list running containers
@@ -66,6 +70,8 @@ An API gateway is a single entry point for all requests from clients to the back
 - `docker run <image-name>` - run image
 - `docker run -p 8080:8080 <image-name>` - run image and map port 8080 to 8080
 - `docker logs <container id>` - show logs
+- `docker image history <image-name>` - show history of image
+- `docker image inspect <image-name>` - show details of image
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" <image-name>` - run image and map port 8080 to 8080 and set environment variable
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" -e "SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/currency_exchange" <image-name>` - run image and map port 8080 to 8080 and set environment variable
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" -e "SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/currency_exchange" -e "SPRING_DATASOURCE_USERNAME=root" -e "SPRING_DATASOURCE_PASSWORD=root" <image-name>` - run image and map port 8080 to 8080 and set environment variable
