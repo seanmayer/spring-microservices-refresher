@@ -63,13 +63,22 @@ An API gateway is a single entry point for all requests from clients to the back
 
 ### Docker example commands
 
+- `docker events` - show events
+- `docker info` - show info
+- `docker stats` - show stats metrics
+- `docker system df` - show disk usage of docker
+- `docker inspect <container id>` - show details of container
+- `docker top <container id>` - show processes running inside container
 - `docker ps` - list running containers
 - `docker ps -a` - list all containers
 - `docker images` - list images
-- `docker run -p 8080:8080 -d <image-name>` - detach flag (run container in background - no terminal)
 - `docker run <image-name>` - run image
+- `docker run <image-name> -m 512m --cpu-quota 50000` - run image with memory and cpu limits (512mb and 50% of cpu)
+- `docker run -p 8080:8080 -d <image-name>` - detach flag (run container in background - no terminal)
+- `docker run -p 8080:8080 --restart=always <image-name>` - docker container will auto run on docker engine start
 - `docker run -p 8080:8080 <image-name>` - run image and map port 8080 to 8080
 - `docker logs <container id>` - show logs
+- `docker logs <container id> -f` - show logs and follows
 - `docker image history <image-name>` - show history of image
 - `docker image inspect <image-name>` - show details of image
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" <image-name>` - run image and map port 8080 to 8080 and set environment variable
