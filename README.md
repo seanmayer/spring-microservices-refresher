@@ -47,6 +47,12 @@ By using a load balancer, microservice-based systems can dynamically scale up or
 
 An API gateway is a single entry point for all requests from clients to the backend services in a microservice architecture. It sits between the client and the microservices and routes requests to the appropriate microservice. It also provides a single place to apply common cross-cutting concerns such as security, monitoring, and resiliency.
 
+## Distributed Tracing
+
+Distributed tracing is a technique that helps to monitor and troubleshoot complex distributed systems. It allows developers to trace the flow of a request as it is processed by multiple microservices. This helps to identify performance bottlenecks and errors in the system.
+
+![Screenshot](readme/images/distributed-tracing.png)
+
 ## Docker
 
 - Docker is a tool designed to make it easier to create, deploy, and run applications by using containers.
