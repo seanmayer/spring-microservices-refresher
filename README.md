@@ -56,7 +56,14 @@ Distributed tracing is a technique that helps to monitor and troubleshoot comple
 In this example we use Zipkin distributed tracing.
 
 1. `docker run -d -p 9411:9411 openzipkin/zipkin`
-2. `http://localhost:9411/zipkin/`
+2. http://localhost:9411/zipkin/
+
+## Obeservability and OpenTelemetry
+
+- Obeservability is the ability to understand the internal state of a system by means of its external outputs.
+  - Step 1 - gather data (metrics, logs, traces)
+  - Step 2 - analyse data (dashboards, alerts, reports, AI/Ops, anomaly detection)
+- OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis in order to understand your software's performance and behavior.
 
 ## Docker
 
