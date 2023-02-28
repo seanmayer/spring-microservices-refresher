@@ -47,6 +47,13 @@ By using a load balancer, microservice-based systems can dynamically scale up or
 
 An API gateway is a single entry point for all requests from clients to the backend services in a microservice architecture. It sits between the client and the microservices and routes requests to the appropriate microservice. It also provides a single place to apply common cross-cutting concerns such as security, monitoring, and resiliency.
 
+## Obeservability and OpenTelemetry
+
+- Obeservability is the ability to understand the internal state of a system by means of its external outputs.
+  - Step 1 - gather data (metrics, logs, traces)
+  - Step 2 - analyse data (dashboards, alerts, reports, AI/Ops, anomaly detection)
+- OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis in order to understand your software's performance and behavior.
+
 ## Distributed Tracing (Zipkin)
 
 Distributed tracing is a technique that helps to monitor and troubleshoot complex distributed systems. It allows developers to trace the flow of a request as it is processed by multiple microservices. This helps to identify performance bottlenecks and errors in the system.
@@ -58,11 +65,19 @@ In this example we use Zipkin distributed tracing.
 1. `docker run -d -p 9411:9411 openzipkin/zipkin`
 2. http://localhost:9411/zipkin/
 
-## Obeservability and OpenTelemetry
+## Spring Boot Actuator
 
-- Obeservability is the ability to understand the internal state of a system by means of its external outputs.
-  - Step 1 - gather data (metrics, logs, traces)
-  - Step 2 - analyse data (dashboards, alerts, reports, AI/Ops, anomaly detection)
+- Spring Boot Actuator provides production-ready features to help you monitor and manage your application. You can choose to manage and monitor your application by using HTTP endpoints or with JMX. For example, you can choose to expose health, metrics, and trace information over HTTP or to JMX.
+
+- Spring Boot Actuator provides a number of additional features to help you monitor and manage your application when it’s pushed to production. You can choose to manage and monitor your application by using HTTP endpoints or with JMX. For example, you can choose to expose health, metrics, and trace information over HTTP or to JMX.
+
+### Micrometer (Spring Boot Actuator)
+
+- Micrometer is a metrics instrumentation library for JVM-based applications. It provides a simple facade over the instrumentation clients for the most popular monitoring systems, allowing you to instrument your code without vendor lock-in. Think SLF4J, but for metrics.
+
+
+### OpenTelemetry (Spring Boot Actuator)
+
 - OpenTelemetry is a collection of tools, APIs, and SDKs. You can use it to instrument, generate, collect, and export telemetry data (metrics, logs, and traces) for analysis in order to understand your software's performance and behavior.
 
 ## Docker
