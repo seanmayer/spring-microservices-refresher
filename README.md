@@ -1,4 +1,4 @@
-# Spring Microservices Refresher
+# Spring Microservices Refresher (SMR)
 
 - Naming server - http://localhost:8761/
 - Microservice 1 - http://localhost:8000/
@@ -120,6 +120,30 @@ In this example we use Zipkin distributed tracing.
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" -e "SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/currency_exchange" -e "SPRING_DATASOURCE_USERNAME=root" -e "SPRING_DATASOURCE_PASSWORD=root" -e "SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver" <image-name>` - run image and map port 8080 to 8080 and set environment variable
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" -e "SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/currency_exchange" -e "SPRING_DATASOURCE_USERNAME=root" -e "SPRING_DATASOURCE_PASSWORD=root" -e "SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver" -e "SPRING_JPA_HIBERNATE_DDL-AUTO=update" <image-name>` - run image and map port 8080 to 8080 and set environment variable
 - `docker run -p 8080:8080 -e "SPRING_PROFILES_ACTIVE=dev" -e "SPRING_DATASOURCE_URL=jdbc:mysql://localhost:3306/currency_exchange" -e "SPRING_DATASOURCE_USERNAME=root" -e "SPRING_DATASOURCE_PASSWORD=root" -e "SPRING_DATASOURCE_DRIVER-CLASS-NAME=com.mysql.cj.jdbc.Driver" -e "SPRING_JPA_HIBERNATE_DDL-AUTO=update" -e "SPRING_JPA_SHOW-SQL=true" <image-name>` - run image and map port 8080 to 8080 and set environment variable
+
+### Creating a container image with Maven
+
+- Add the following to the `pom.xml` file
+```
+<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<image>
+						<name>seanmayerz/smr-${project.artifactId}:${project.version}</name>
+					</image>
+					<pullPolicy>IF_NOT_PRESENT</pullPolicy>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+```
+
+1. `mvn spring-boot:build-image -DskipTests`
+2. `docker run -p 8000:8000 seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT`
+
 
 
 ### Spring Cloud Gateway
