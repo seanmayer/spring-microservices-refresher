@@ -141,10 +141,11 @@ In this example we use Zipkin distributed tracing.
 	</build>
 ```
 
-1. `mvn spring-boot:build-image -DskipTests`
-2. `docker run -p 8000:8000 seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT`
+1. For each microservice repo: `mvn spring-boot:build-image -DskipTests`
 
-
+- `docker network create smr-network`
+- `docker run --name eureka-server --network smr-network -p 8761:8761 seanmayerz/smr-naming-server:0.0.1-SNAPSHOT`
+- `docker run -e JAVA_OPTS="-Dserver.port=8000" --name currency-exchange-service --network smr-network -p 8000:8000 seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT`
 
 ### Spring Cloud Gateway
 
