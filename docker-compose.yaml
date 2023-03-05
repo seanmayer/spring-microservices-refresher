@@ -1,0 +1,16 @@
+version: '3.7'
+
+networks:
+  smr-network:
+    driver: bridge
+services:
+  currency-exchange-service:
+    image: seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT
+    mem_limit: 700m
+    ports:
+      - 8000:8000
+    environment:
+      - JAVA_OPTS=-Dserver.port=8000
+    networks:
+      - smr-network
+

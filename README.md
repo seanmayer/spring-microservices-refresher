@@ -140,12 +140,16 @@ In this example we use Zipkin distributed tracing.
 		</plugins>
 	</build>
 ```
-
+### Creating images with Maven
 1. For each microservice repo: `mvn spring-boot:build-image -DskipTests`
 
+### Running images with Docker manually
 - `docker network create smr-network`
 - `docker run --name eureka-server --network smr-network -p 8761:8761 seanmayerz/smr-naming-server:0.0.1-SNAPSHOT`
 - `docker run -e JAVA_OPTS="-Dserver.port=8000" --name currency-exchange-service --network smr-network -p 8000:8000 seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT`
+
+### Running images with Docker Compose
+- Navigate to docker-compose.yaml and execute `docker-compose up`
 
 ### Spring Cloud Gateway
 
