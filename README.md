@@ -150,6 +150,7 @@ In this example we use Zipkin distributed tracing.
 
 ### Running images with Docker Compose
 - Navigate to docker-compose.yaml and execute `docker-compose up`
+- `docker-compose down` - remove all containers, networks, and volumes 
 
 ### Spring Cloud Gateway
 
