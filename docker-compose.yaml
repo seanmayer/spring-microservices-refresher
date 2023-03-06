@@ -1,16 +1,24 @@
-version: '3.7'
-
+version: '3.9'
 networks:
   smr-network:
     driver: bridge
 services:
   currency-exchange-service:
     image: seanmayerz/smr-currency-exchange-service:0.0.1-SNAPSHOT
-    mem_limit: 700m
     ports:
       - 8000:8000
     environment:
       - JAVA_OPTS=-Dserver.port=8000
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
+    depends_on:
+      - naming-server
+    networks:
+      - smr-network
+  naming-server:
+    container_name: naming-server
+    image: seanmayerz/smr-naming-server:0.0.1-SNAPSHOT
+    ports:
+      - 8761:8761
     networks:
       - smr-network
 
