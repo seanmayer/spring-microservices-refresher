@@ -21,4 +21,13 @@ services:
       - 8761:8761
     networks:
       - smr-network
+  currency-conversion-service:
+    image: seanmayerz/smr-currency-conversion-service:0.0.1-SNAPSHOT
+    ports:
+      - 8100:8100
+    networks:
+      - smr-network
+    environment:
+      - JAVA_OPTS=-Dserver.port=8100
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
 
