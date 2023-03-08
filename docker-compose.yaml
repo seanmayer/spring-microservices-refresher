@@ -37,6 +37,6 @@ services:
     networks:
       - smr-network
     environment:
-      - JAVA_OPTS=-Dserver.port=8100
+      - JAVA_OPTS=-Dserver.port=8765
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
 
