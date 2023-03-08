@@ -30,4 +30,13 @@ services:
     environment:
       - JAVA_OPTS=-Dserver.port=8100
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
+  api-gateway:
+    image: seanmayerz/smr-api-gateway:0.0.1-SNAPSHOT
+    ports:
+      - 8765:8765
+    networks:
+      - smr-network
+    environment:
+      - JAVA_OPTS=-Dserver.port=8100
+      - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
 
