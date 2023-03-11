@@ -11,6 +11,7 @@ services:
     environment:
       - JAVA_OPTS=-Dserver.port=8000
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
+      - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin-server:9411/api/v2/spans
     depends_on:
       - naming-server
     networks:
@@ -33,6 +34,7 @@ services:
     environment:
       - JAVA_OPTS=-Dserver.port=8100
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
+      - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin-server:9411/api/v2/spans
   api-gateway:
     image: seanmayerz/smr-api-gateway:0.0.1-SNAPSHOT
     ports:
@@ -43,4 +45,13 @@ services:
     environment:
       - JAVA_OPTS=-Dserver.port=8765
       - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://naming-server:8761/eureka/
+      - MANAGEMENT.ZIPKIN.TRACING.ENDPOINT=http://zipkin-server:9411/api/v2/spans
+  zipkin-server:
+    image: openzipkin/zipkin:2.23
+    mem_limit: 300m
+    ports:
+      - "9411:9411"
+    networks:
+      - smr-network
+    restart: always
 
