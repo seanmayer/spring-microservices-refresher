@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 public class CurrencyConversion {
 
   private Long id;
-  private String from,to;
-  private BigDecimal quantity, conversionMultiple, totalCalculatedAmount;
+  private String from;
+  private String to;
+  private BigDecimal quantity;
+  private BigDecimal conversionMultiple;
+  private BigDecimal totalCalculatedAmount;
   private String environment;
 }

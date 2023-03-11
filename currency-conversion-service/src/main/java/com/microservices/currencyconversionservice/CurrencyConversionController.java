@@ -36,6 +36,10 @@ public class CurrencyConversionController {
 
     CurrencyConversion response = responseEntity.getBody();
 
+    if(response == null) {
+      throw new RuntimeException("No response from currency exchange service");
+    }
+
     return new CurrencyConversion(
       response.getId(),
       from,
