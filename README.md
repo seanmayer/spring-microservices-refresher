@@ -190,7 +190,7 @@ In this example we use Zipkin distributed tracing.
 - Run `ab -n 1000 -c 100 http://localhost:8000/sample-api`
 
 ## Issues
-### Running multiple springboot microservice projects in VSCode
+### Running multiple springboot microservice projects in VSCode (Without Docker)
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.
 
 Current workaround is reload VS Code window, or F1 ->Clean the java language server workspace.
