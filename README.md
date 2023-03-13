@@ -184,10 +184,30 @@ In this example we use Zipkin distributed tracing.
 
 ![Screenshot](readme/images/resilience4j.png)
 
-### Testing endpoint with multiple requests using Apache Bench
+## Testing endpoint with multiple requests using Apache Bench
 
 - Open terminal
 - Run `ab -n 1000 -c 100 http://localhost:8000/sample-api`
+
+## Container Orchestration
+
+- Container orchestration is the process of managing containers at scale
+- Container orchestration tools help to automate the deployment, scaling, and management of containerized applications
+- Container orchestration tools are used to manage the lifecycle of containers
+
+![Screenshot](readme/images/container-orchestration.png)
+
+### Cloud Orchestration Options
+- AWS
+  - Elastic Container Service (ECS)
+  - Elastic Kubernetes Service (EKS)
+  - Fargate
+- Azure
+  - Azure Kubernetes Service (AKS)
+  - Azure Container Instances (ACI)
+- Google Cloud
+  - Google Kubernetes Engine (GKE) 
+  - Google Cloud Run
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
