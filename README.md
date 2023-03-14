@@ -197,6 +197,13 @@ In this example we use Zipkin distributed tracing.
 
 ![Screenshot](readme/images/container-orchestration.png)
 
+### Kubernetes
+
+- Kubernetes is an open-source system for automating deployment, scaling, and management of containerized applications
+- Kubernetes is a portable, extensible, open-source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation
+- Kubernetes is a production-ready platform that can be used to deploy and manage containerized applications in a cloud environment
+- Kubernetes is a container orchestration tool that is used to automate the deployment, scaling, and management of containerized applications
+
 ### Cloud Orchestration Options
 - AWS
   - Elastic Container Service (ECS)
