@@ -204,6 +204,68 @@ In this example we use Zipkin distributed tracing.
 - Kubernetes is a production-ready platform that can be used to deploy and manage containerized applications in a cloud environment
 - Kubernetes is a container orchestration tool that is used to automate the deployment, scaling, and management of containerized applications
 
+### Example kubectl commands
+
+- `kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0` - create a deployment
+- `kubectl get deployments` - list all deployments
+- `kubectl expose deployment hello-world --type=LoadBalancer --port=8080` - expose a deployment
+- `kubectl scale deployment hello-world --replicas=3` - scale a deployment
+- `kubectl delete pod hello-world-xxxxx` - delete a pod
+- `kubectl autoscale deployment hello-world --min=3 --max=10 --cpu-percent=80` - autoscale a deployment
+
+#### Edit deployment.extensions/hello-world
+- `kubectl edit deployment.extensions/hello-world`
+
+Example file contents:
+```
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: "2020-10-03T20:47:39Z"
+  generation: 1
+  labels:
+    app: hello-world
+  name: hello-world
+  namespace: default
+  resourceVersion: "1000"
+  selfLink: /apis/extensions/v1beta1/namespaces/default/deployments/hello-world
+  uid: 3b5b5b5b-5b5b-5b5b-5b5b-5b5b5b5b5b5b
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: hello-world
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: hello-world
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:1.0
+        imagePullPolicy: Always
+        name: hello-world
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+
+```
+
 ### Cloud Orchestration Options
 - AWS
   - Elastic Container Service (ECS)
