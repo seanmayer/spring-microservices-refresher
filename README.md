@@ -204,6 +204,8 @@ In this example we use Zipkin distributed tracing.
 - Kubernetes is a production-ready platform that can be used to deploy and manage containerized applications in a cloud environment
 - Kubernetes is a container orchestration tool that is used to automate the deployment, scaling, and management of containerized applications
 
+![Screenshot](readme/images/kubernetes.png)
+
 ### Example kubectl commands
 
 - `kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0` - create a deployment
