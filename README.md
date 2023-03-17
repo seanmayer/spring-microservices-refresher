@@ -206,6 +206,20 @@ In this example we use Zipkin distributed tracing.
 
 ![Screenshot](readme/images/kubernetes.png)
 
+#### Kubernetes Architecture
+
+- Kubernetes is a cluster of nodes
+- A node is a worker machine in Kubernetes
+- A node may be a VM or physical machine, depending on the cluster
+- Each node has the services necessary to run Pods and is managed by the master components
+- The control plane's components make global decisions about the cluster (e.g., scheduling), as well as detecting and responding to cluster events (e.g., starting up a new pod when a deployment's `replicas` field is unsatisfied)
+- The control plane's components include the Kubernetes API server, scheduler, and core resource controllers
+- The node components run on every node, maintaining running pods and providing the Kubernetes runtime environment
+
+![Screenshot](readme/images/kube-cluster.png)
+
+
+
 ### Example kubectl commands
 
 - `kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0` - create a deployment
