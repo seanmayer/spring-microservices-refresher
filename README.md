@@ -218,8 +218,6 @@ In this example we use Zipkin distributed tracing.
 
 ![Screenshot](readme/images/kube-cluster.png)
 
-
-
 ### Example kubectl commands
 
 - `kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0` - create a deployment
