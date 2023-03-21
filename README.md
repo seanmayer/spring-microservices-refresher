@@ -239,6 +239,18 @@ How to get a pod's IP address?
 
 - `kubectl get pods -o wide` - get all pods with IP address (each pod has a unique IP address)
 
+How to get a pod's logs?
+
+- `kubectl logs <pod-name>` - get logs for a pod
+
+How to get a pod's shell?
+
+- `kubectl exec -it <pod-name> -- /bin/bash` - get a shell for a pod
+
+How to describe a pod?
+
+- `kubectl describe pod <pod-name>` - get detailed information about a pod
+
 #### Kubernetes Responsibilities
 
 - Kubernetes is responsible for:
