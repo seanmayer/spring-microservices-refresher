@@ -218,6 +218,48 @@ In this example we use Zipkin distributed tracing.
 
 ![Screenshot](readme/images/kube-cluster.png)
 
+Kuberenetes uses single responsibility (pods, services, deployments, etc) to manage containers
+
+- manage workloads
+- provide external access to workloads
+- enable scaling
+- enable zero downtime deployments
+
+#### Kubernetes Pods!
+
+- A pod is the smallest deployable unit of computing that can be created and managed in Kubernetes
+- A pod (as in a pod of whales or pea pod) is a group of one or more containers (such as Docker containers), with shared storage/network, and a specification for how to run the containers
+- A pod's contents are always co-located and co-scheduled, and run in a shared context
+- A pod models an application-specific "logical host" - it contains one or more application containers which are relatively tightly coupled
+- A pod can contain different application containers which are relatively tightly coupled
+
+![Screenshot](readme/images/pods.png)
+
+How to get a pod's IP address?
+
+- `kubectl get pods -o wide` - get all pods with IP address (each pod has a unique IP address)
+
+#### Kubernetes Responsibilities
+
+- Kubernetes is responsible for:
+  - Scheduling
+  - Scaling
+  - Load balancing
+  - Health checks
+  - Rolling updates
+  - Rollbacks
+  - Service discovery
+  - Secret and configuration management
+  - Storage orchestration
+  - Batch execution
+  - Access control
+  - Monitoring
+  - Logging
+  - Self-healing
+  - Auto-scaling
+  - Multi-tenancy
+  - Multi-cloud support
+
 ### Example kubectl commands
 
 - `kubectl create deployment hello-world --image=gcr.io/google-samples/hello-app:1.0` - create a deployment
@@ -229,6 +271,26 @@ In this example we use Zipkin distributed tracing.
 
 #### Edit deployment.extensions/hello-world
 - `kubectl edit deployment.extensions/hello-world`
+
+#### Check events
+
+- `kubectl get events`
+
+#### Check pods
+
+- `kubectl get pods`
+
+#### Check replicasets
+
+- `kubectl get replicasets`
+
+#### Check deployments
+
+- `kubectl get deployments`
+
+#### Check services
+
+- `kubectl get services`
 
 Example file contents:
 ```
