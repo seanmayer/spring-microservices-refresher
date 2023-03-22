@@ -251,6 +251,32 @@ How to describe a pod?
 
 - `kubectl describe pod <pod-name>` - get detailed information about a pod
 
+#### Kubernetes ReplicaSets
+
+- A ReplicaSet's purpose is to maintain a stable set of replica Pods running at any given time
+- A ReplicaSet is defined with fields, including a selector which specifies how to identify Pods it can acquire, a number of replicas indicating how many Pods it should be maintaining, and a pod template specifying the data of new Pods it should create to meet the number of replicas criteria
+- A ReplicaSet is responsible for creating and deleting Pods as needed to reach the desired number of replicas
+- A ReplicaSet is often used to guarantee the availability of a specified number of identical Pods
+
+![Screenshot](readme/images/replicasets.png)
+
+How to get a ReplicaSets
+
+- `kubectl get replicasets` - get all ReplicaSets or `kubectl get rs` - get all ReplicaSets
+
+#### Kubernetes Deployments
+
+- A Deployment provides declarative updates for Pods and ReplicaSets
+- You describe a desired state in a Deployment object, and the Deployment controller changes the actual state to the desired state at a controlled rate
+- You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments
+- A Deployment checks on the health of your Pods and makes sure that a specified number of them are always running
+- If a Pod fails, the Deployment controller replaces it with a new one
+- A Deployment can also be used to update the configuration of running Pods
+
+How to scale a deployment?
+
+- `kubectl scale deployment <deployment-name> --replicas=3` - scale a deployment to 3 replicas
+
 #### Kubernetes Responsibilities
 
 - Kubernetes is responsible for:
@@ -287,6 +313,7 @@ How to describe a pod?
 #### Check events
 
 - `kubectl get events`
+- `kubectl get events --sort-by=.metadata.creationTimestamp` - sort events by creation timestamp
 
 #### Check pods
 
