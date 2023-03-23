@@ -258,8 +258,6 @@ How to describe a pod?
 - A ReplicaSet is responsible for creating and deleting Pods as needed to reach the desired number of replicas
 - A ReplicaSet is often used to guarantee the availability of a specified number of identical Pods
 
-![Screenshot](readme/images/replicasets.png)
-
 How to get a ReplicaSets
 
 - `kubectl get replicasets` - get all ReplicaSets or `kubectl get rs` - get all ReplicaSets
@@ -273,9 +271,15 @@ How to get a ReplicaSets
 - If a Pod fails, the Deployment controller replaces it with a new one
 - A Deployment can also be used to update the configuration of running Pods
 
+![Screenshot](readme/images/deployment.png)
+
 How to scale a deployment?
 
 - `kubectl scale deployment <deployment-name> --replicas=3` - scale a deployment to 3 replicas
+
+How to set a deployment's image? (Rolling update) - zero downtime deployment (blue/green deployment) 
+
+- `kubectl set image deployment <deployment-name> <container-name>=<image-name>` - set a deployment's image
 
 #### Kubernetes Responsibilities
 
