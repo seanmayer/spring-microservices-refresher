@@ -281,6 +281,33 @@ How to set a deployment's image? (Rolling update) - zero downtime deployment (bl
 
 - `kubectl set image deployment <deployment-name> <container-name>=<image-name>` - set a deployment's image
 
+How to get a deployment's history?
+
+- `kubectl rollout history deployment <deployment-name>` - get a deployment's history
+
+How to rollback a deployment?
+
+- `kubectl rollout undo deployment <deployment-name>` - rollback a deployment
+
+#### Kubernetes Services
+
+- A Service in Kubernetes is an abstraction which defines a logical set of Pods and a policy by which to access them
+- Services enable a loose coupling between dependent Pods
+- A Service can be configured to route traffic to a set of Pods
+- A Service can be configured to proxy traffic to a set of Pods
+- A Service can be configured to proxy traffic to a single Pod
+- A Service can be configured to expose multiple identical Pods as a single virtual IP address
+- A Service can be configured to expose a set of Pods as a virtual IP address that is not managed by Kubernetes
+- A Service can be configured to expose a set of Pods as a DNS name that is not managed by Kubernetes
+- A Service can be configured to expose a set of Pods as a DNS name that is managed by Kubernetes
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster and are load balanced
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster and are load balanced and are sticky (session-affinity)
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster and are load balanced and are sticky (session-affinity) and are load balanced across multiple ports
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster and are load balanced and are sticky (session-affinity) and are load balanced across multiple ports and are load balanced across multiple protocols
+- A Service can be configured to expose a set of Pods as a set of DNS records that are managed by Kubernetes and are resolvable from outside the cluster and are load balanced and are sticky (session-affinity) and are load balanced across multiple ports and are load balanced across multiple protocols and are load balanced across multiple ports and protocols
+
 #### Kubernetes Responsibilities
 
 - Kubernetes is responsible for:
