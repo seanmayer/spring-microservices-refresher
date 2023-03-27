@@ -225,6 +225,47 @@ Kuberenetes uses single responsibility (pods, services, deployments, etc) to man
 - enable scaling
 - enable zero downtime deployments
 
+##### Kubernetes Master Node
+
+- The master node is responsible for managing the cluster
+- The master node runs the Kubernetes control plane
+- The Kubernetes control plane consists of the Kubernetes API server, scheduler, and core resource controllers
+
+Api Server
+
+- The API server is the front end for the Kubernetes control plane
+- The API server is the only Kubernetes component that talks to the Kubernetes API  
+- The API server is responsible for:
+  - serving the Kubernetes API
+  - scheduling workloads
+  - controlling access to the cluster
+  - maintaining the current state of the cluster
+  - scaling the cluster
+
+Distributed Database (etcd)
+
+- The distributed database is a highly available key-value store used as Kubernetes' backing store for all cluster data
+- The distributed database is used to store the state of the cluster
+
+Scheduler
+
+- The scheduler is responsible for distributing workloads across the cluster
+- The scheduler watches newly created pods that have no node assigned
+- For every pod that the scheduler discovers, the scheduler becomes responsible for finding the best node for that pod to run on
+- The scheduler makes scheduling decisions based on the configured policies
+
+Controller Manager
+
+- The controller manager is a daemon that embeds the core control loops
+- A control loop is a non-terminating loop that regulates the state of the cluster
+- The controller manager runs all the control loops in separate goroutines
+- The controller manager is responsible for:
+  - maintaining the desired state of the cluster
+  - responding to cluster events (e.g., starting up a new pod when a deployment's `replicas` field is unsatisfied)
+  - managing the shared state of the cluster
+
+![Screenshot](readme/images/masternode.png)
+
 #### Kubernetes Pods!
 
 - A pod is the smallest deployable unit of computing that can be created and managed in Kubernetes
