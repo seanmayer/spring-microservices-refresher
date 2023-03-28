@@ -266,6 +266,36 @@ Controller Manager
 
 ![Screenshot](readme/images/masternode.png)
 
+##### Kubernetes Worker Node
+
+- The worker node is responsible for running the workloads
+- The worker node runs the Kubernetes node components
+- The Kubernetes node components include kubelet, kube-proxy, and container runtime
+
+Kubelet
+
+- The kubelet is the primary "node agent" that runs on each node
+- The kubelet is responsible for:
+  - ensuring that containers are running in a pod
+  - reporting the node's health
+  - handling node-level events (e.g., starting up a pod when a deployment's `replicas` field is unsatisfied)
+
+Kube Proxy
+
+- The kube proxy is responsible for maintaining network rules on the node
+- The kube proxy maintains network rules on the node
+- These network rules allow network communication to your Pods from network sessions inside or outside of your cluster
+- The kube proxy uses the operating system packet filtering layer if there is one and it's available
+- The kube proxy maintains network rules on the node
+- These network rules allow network communication to your Pods from network sessions inside or outside of your cluster
+- The kube proxy uses the operating system packet filtering layer if there is one and it's available
+
+Container Runtime
+
+- The container runtime is the software that is responsible for running containers
+
+![Screenshot](readme/images/workernode.png)
+
 #### Kubernetes Pods!
 
 - A pod is the smallest deployable unit of computing that can be created and managed in Kubernetes
