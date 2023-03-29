@@ -495,6 +495,12 @@ spec:
   - Google Kubernetes Engine (GKE) 
   - Google Cloud Run
 
+#### Google Cloud Engine (GKE)
+
+Install Google Cloud SDK
+
+- https://cloud.google.com/sdk/docs/install
+
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.
