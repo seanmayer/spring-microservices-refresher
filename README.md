@@ -497,7 +497,9 @@ spec:
 
 #### Google Cloud Engine (GKE)
 
-Install Google Cloud SDK
+- https://cloud.google.com/kubernetes-engine/docs/quickstart
+
+Install Google Cloud SDK 
 
 - https://cloud.google.com/sdk/docs/install
 
