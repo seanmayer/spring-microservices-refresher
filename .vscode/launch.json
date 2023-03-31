@@ -13,7 +13,9 @@
    },
    "args": [
     "-Dserver.port=8000"
-   ]
+   ],
+   "noDebug": false,
+   "__progressId": "a595a587-6140-4d32-90af-7fcfd3d79e83"
   },
   {
    "type": "java",
@@ -48,9 +50,11 @@
    "cwd": "${workspaceFolder}",
    "mainClass": "com.microservices.namingserver.NamingServerApplication",
    "projectName": "naming-server",
-   "vmArgs": "",
+   "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=64420 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=naming-server",
    "env": {},
-   "args": []
+   "args": [],
+   "noDebug": false,
+   "__progressId": "3430394f-5357-48a4-8e72-f9b1cbcb16f5"
   },
   {
    "type": "java",
@@ -64,6 +68,26 @@
     "JAVA_OPTS": ""
    },
    "args": []
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-SpringCloudConfigServerApplication<spring-cloud-config-server>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.springcloudconfigserver.SpringCloudConfigServerApplication",
+   "projectName": "spring-cloud-config-server",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
+  },
+  {
+   "type": "java",
+   "name": "Spring Boot-LimitsServiceApplication<limits-service>",
+   "request": "launch",
+   "cwd": "${workspaceFolder}",
+   "mainClass": "com.microservices.limitsservice.LimitsServiceApplication",
+   "projectName": "limits-service",
+   "args": "",
+   "envFile": "${workspaceFolder}/.env"
   }
  ]
 }
