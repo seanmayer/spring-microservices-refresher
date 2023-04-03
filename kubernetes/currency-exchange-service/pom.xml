@@ -10,7 +10,7 @@
 		<relativePath />
 	</parent>
 	<groupId>com.microservices</groupId>
-	<artifactId>currency-exchange-service</artifactId>
+	<artifactId>currency-exchange-service-kubernetes</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>currency-exchange-service</name>
 	<description>Demo project for Spring Boot</description>
