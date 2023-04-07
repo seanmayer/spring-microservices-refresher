@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CurrencyExchangeController {
 
-  private Logger logger = LoggerFactory.getLogger(this.getClass());
+  private static final Logger logger = LoggerFactory.getLogger(CurrencyExchangeController.class);
 
   @Autowired
   private CurrencyExchangeRepository repository;
@@ -24,7 +24,7 @@ public class CurrencyExchangeController {
     @PathVariable String from,
     @PathVariable String to
   ) {
-    logger.info("retrieveExchangeValue called with {} to {}", from, to);
+    //logger.info("retrieveExchangeValue called with {} to {}", from, to);
     CurrencyExchange currencyExchange = repository.findByFromAndTo(from, to);
     if (currencyExchange == null) {
       throw new RuntimeException(
@@ -34,11 +34,9 @@ public class CurrencyExchangeController {
 
     String host = environment.getProperty("HOSTNAME");
     String version = "v11";
-    
+    String port = environment.getProperty("local.server.port");
     currencyExchange.setEnvironment(port + " " + host + " " + version);
 
-    String port = environment.getProperty("local.server.port");
-    currencyExchange.setEnvironment(port);
     return currencyExchange;
   }
 }
