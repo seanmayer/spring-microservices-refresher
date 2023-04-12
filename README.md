@@ -503,7 +503,7 @@ Install Google Cloud SDK
 
 - https://cloud.google.com/sdk/docs/install
 
-#### Quickstart with K8s/Docker/Maven
+### Quickstart with K8s/Docker/Maven
 
 1. Create Maven project images (`/kubernetes/`)
    - `mvn clean package`
@@ -513,7 +513,6 @@ Install Google Cloud SDK
     - `docker push seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
     - `docker push seanmayerz/smrk8-currency-conversion-service:0.0.11-SNAPSHOT`
     - Check docker registry https://hub.docker.com/u/seanmayerz
-
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
