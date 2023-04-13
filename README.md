@@ -513,6 +513,18 @@ Install Google Cloud SDK
     - `docker push seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
     - `docker push seanmayerz/smrk8-currency-conversion-service:0.0.11-SNAPSHOT`
     - Check docker registry https://hub.docker.com/u/seanmayerz
+3. Create Kubernetes cluster in GKE
+    - screenshots to add here...
+
+4. Deploy microservice to Kubernetes
+  - `kubectl version`
+  - `kubectl create deployment currency-exchange-service --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
+  - `kubectl expose deployment currency-exchange-service --type=LoadBalancer --port=8000`
+  - `kubectl get svc` or `kubectl get services`
+  - `kubectl get pods`
+  - `kubectl get rs` or `kubectl get replicasets`
+  - `kubectl get all`
+  
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
