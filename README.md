@@ -514,7 +514,11 @@ Install Google Cloud SDK
     - `docker push seanmayerz/smrk8-currency-conversion-service:0.0.11-SNAPSHOT`
     - Check docker registry https://hub.docker.com/u/seanmayerz
 3. Create Kubernetes cluster in GKE
-    - screenshots to add here...
+- Login to https://cloud.google.com/ (using free trial credits)
+- Create new project
+- Enable Kubernetes Engine API
+- Create cluster
+      ![Screenshot](readme/images/gke-k8-cluster1.png)
 
 4. Deploy microservice to Kubernetes
   - `kubectl version`
