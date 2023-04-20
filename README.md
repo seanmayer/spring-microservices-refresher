@@ -519,6 +519,10 @@ Install Google Cloud SDK
 - Enable Kubernetes Engine API
 - Create cluster
       ![Screenshot](readme/images/gke-k8-cluster1.png)
+- Cluster configuration
+      ![Screenshot](readme/images/gke-k8-cluster2.png)
+- Cluster network configuration
+      ![Screenshot](readme/images/gke-k8-cluster3.png)
 
 4. Deploy microservice to Kubernetes
   - `kubectl version`
