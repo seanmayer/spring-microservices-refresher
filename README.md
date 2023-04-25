@@ -526,8 +526,8 @@ Install Google Cloud SDK
 
 4. Prepare to deploy microservices to Kubernetes
   - `kubectl version`
-  - `kubectl create deployment currency-exchange-service --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
-  - `kubectl expose deployment currency-exchange-service --type=LoadBalancer --port=8000`
+  - `kubectl create deployment currency-exchange --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
+  - `kubectl expose deployment currency-exchange --type=LoadBalancer --port=8000`
   - `kubectl get svc` or `kubectl get services`
   - `kubectl get pods`
   - `kubectl get rs` or `kubectl get replicasets`
