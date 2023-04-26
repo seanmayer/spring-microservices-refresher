@@ -511,7 +511,7 @@ Install Google Cloud SDK
    - `mvn spring-boot:build-image -DskipTests`
 2. Add to docker registry
     - `docker push seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
-    - `docker push seanmayerz/smrk8-currency-conversion-service:0.0.11-SNAPSHOT`
+    - `docker push seanmayerz/smrk8-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT`
     - Check docker registry https://hub.docker.com/u/seanmayerz
 3. Create Kubernetes cluster in GKE
 - Login to https://cloud.google.com/ (using free trial credits)
@@ -526,8 +526,10 @@ Install Google Cloud SDK
 
 4. Prepare to deploy microservices to Kubernetes
   - `kubectl version`
-  - `kubectl create deployment currency-exchange --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
-  - `kubectl expose deployment currency-exchange --type=LoadBalancer --port=8000`
+  - `kubectl create deployment currency-exchange-kubernetes --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
+  - `kubectl create deployment currency-conversion-kubernetes --image=seanmayerz/smr-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT`
+  - `kubectl expose deployment currency-exchange-kubernetes --type=LoadBalancer --port=8000`
+  - `kubectl expose deployment currency-conversion-kubernetes --type=LoadBalancer --port=8100`
   - `kubectl get svc` or `kubectl get services`
   - `kubectl get pods`
   - `kubectl get rs` or `kubectl get replicasets`
@@ -535,6 +537,7 @@ Install Google Cloud SDK
 
 5. Open GKE Kuberenetes GKE cloud shell
   - `curl http://<EXTERNAL-IP>:8000/currency-exchange/from/USD/to/INR` - external IP is found in `kubectl get services`
+  - `curl http://<EXTERNAL-IP>:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` - external IP is found in `kubectl get services`
   
   
 

@@ -10,8 +10,8 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microservices</groupId>
-	<artifactId>currency-conversion-service</artifactId>
-	<version>0.0.11-SNAPSHOT</version>
+	<artifactId>currency-conversion-service-kubernetes</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
 	<name>currency-conversion-service-kubernetes</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
