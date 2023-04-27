@@ -524,7 +524,12 @@ Install Google Cloud SDK
 - Cluster network configuration
       ![Screenshot](readme/images/gke-k8-cluster3.png)
 
-4. Prepare to deploy microservices to Kubernetes
+4. Connect to GKE Cluster
+  - Connect to GKE cluster using cloud shell (you can also use your local machine)
+      ![Screenshot](readme/images/gke-k8-connect-cluster.png)
+
+
+5. Prepare to deploy microservices to Kubernetes
   - `kubectl version`
   - `kubectl create deployment currency-exchange-kubernetes --image=seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
   - `kubectl create deployment currency-conversion-kubernetes --image=seanmayerz/smr-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT`
@@ -536,8 +541,8 @@ Install Google Cloud SDK
   - `kubectl get all`
 
 5. Open GKE Kuberenetes GKE cloud shell
-  - `curl http://<EXTERNAL-IP>:8000/currency-exchange/from/USD/to/INR` - external IP is found in `kubectl get services`
-  - `curl http://<EXTERNAL-IP>:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` - external IP is found in `kubectl get services`
+  - `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
+  - `curl http://{{EXTERNAL-IP}}:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` - get external ip from `kubectl get svc` command
   
   
 
