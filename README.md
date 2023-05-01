@@ -511,7 +511,7 @@ Install Google Cloud SDK
    - `mvn spring-boot:build-image -DskipTests`
 2. Add to docker registry
     - `docker push seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT`
-    - `docker push seanmayerz/smrk8-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT`
+    - `docker push seanmayerz/smr-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT`
     - Check docker registry https://hub.docker.com/u/seanmayerz
 3. Create Kubernetes cluster in GKE
 - Login to https://cloud.google.com/ (using free trial credits)
