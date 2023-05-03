@@ -530,7 +530,7 @@ Install Google Cloud SDK
   - `gcloud init`
   - `gcloud auth login`
   - Create cluster (not autopilot)
-    - `gcloud container clusters create smr-k8-cluster --zone us-central1-c --num-nodes 1 --machine-type n1-standard-1`
+    - `gcloud container clusters create smr-cluster --zone europe-west2-a --num-nodes 1`
   - Connect to GKE cluster using cloud shell (you can also use your local machine)
       ![Screenshot](readme/images/gke-k8-connect-cluster.png)
 
