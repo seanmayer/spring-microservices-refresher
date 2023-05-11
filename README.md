@@ -545,6 +545,8 @@ Install Google Cloud SDK
   - `kubectl get pods`
   - `kubectl get rs` or `kubectl get replicasets`
   - `kubectl get all`
+  - `set env deployment/currency-conversion-kubernetes CURRENCY_EXCHANGE_SERVICE_HOST={{EXTERNAL-IP}}` - get external ip from `kubectl get svc` command
+  - `kubectl describe deployment currency-conversion-kubernetes` - check environment variables
 
 5. Open GKE Kuberenetes GKE cloud shell
   - `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
