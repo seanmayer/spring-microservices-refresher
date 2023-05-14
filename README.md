@@ -551,6 +551,19 @@ Install Google Cloud SDK
 5. Open GKE Kuberenetes GKE cloud shell
   - `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
   - `curl http://{{EXTERNAL-IP}}:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` - get external ip from `kubectl get svc` command
+
+6. Create declaritive configuration yaml
+
+- `kubectl get deployments`
+- cd into `/kubernetes/currency-exchange-service`
+- `kubectl get deployment currency-exchange-kubernetes -o yaml` - get yaml for existing deployment
+- `kubectl get deployment currency-exchange-kubernetes -o yaml > deployment.yaml` - save yaml for existing deployment
+- `kubectl get service currency-exchange-kubernetes -o yaml > service.yaml` - save yaml for existing service (copy the service yaml from the file to the deployment yaml, then delete the service yaml)
+
+7. Deploy declaritive configuration yaml
+- `kubectl diff -f deployment.yaml` - check diff
+- `kubectl apply -f deployment.yaml` - apply changes
+You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` to see load balancing in action
   
   
 
