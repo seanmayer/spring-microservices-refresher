@@ -564,6 +564,19 @@ Install Google Cloud SDK
 - `kubectl diff -f deployment.yaml` - check diff
 - `kubectl apply -f deployment.yaml` - apply changes
 You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` to see load balancing in action
+
+8. Enable Logging and Tracing in Google Cloud
+ - In Google Cloud search `API & Services`
+  - Enable API & Services
+      ![Screenshot](readme/images/enable-api-services.png)
+ - Search `Cloud Logging`
+  - Enable Cloud Logging
+      ![Screenshot](readme/images/enable-cloud-logging-api.png)
+ - Also search `Stackdrivers`
+  - Enable all of these:
+      ![Screenshot](readme/images/enable-stack-drivers.png)
+
+
   
   
 
