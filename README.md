@@ -576,6 +576,18 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
   - Enable all of these:
       ![Screenshot](readme/images/enable-stack-drivers.png)
 
+9. Deploying Microservice using YAML deployment
+- First delete the existing deployment and service
+  - `kubectl delete all -l app=currency-exchange-kubernetes`
+  - `kubectl delete all -l app=currency-conversion-kubernetes`
+- kubectl get all (should only see cluster-ip service)
+- Go to `/kubernetes/currency-exchange-service` and `/kubernetes/currency-conversion-service` and run `kubectl apply -f deployment.yaml`
+- kubectl get all (should see deployment, replicaset, pod, service)
+- kubectl get pods (should see 2 pods)
+- kubectl get rs (should see 2 replicasets)
+- kubectl get svc --watch (wait eventually should see 2 services)
+- `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
+
 
   
   

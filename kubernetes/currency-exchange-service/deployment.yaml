@@ -9,7 +9,7 @@ metadata:
   name: currency-exchange-kubernetes
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: currency-exchange-kubernetes
@@ -62,8 +62,6 @@ metadata:
   namespace: default
 spec:
   allocateLoadBalancerNodePorts: true
-  clusterIPs:
-  - $(CLUSTER_IP)
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
