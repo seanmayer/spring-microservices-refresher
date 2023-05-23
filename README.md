@@ -552,7 +552,7 @@ Install Google Cloud SDK
   - `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
   - `curl http://{{EXTERNAL-IP}}:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` - get external ip from `kubectl get svc` command
 
-6. Create declaritive configuration yaml
+6. Create declaritive configuration yaml for currency-exchange-service
 
 - `kubectl get deployments`
 - cd into `/kubernetes/currency-exchange-service`
@@ -560,12 +560,23 @@ Install Google Cloud SDK
 - `kubectl get deployment currency-exchange-kubernetes -o yaml > deployment.yaml` - save yaml for existing deployment
 - `kubectl get service currency-exchange-kubernetes -o yaml > service.yaml` - save yaml for existing service (copy the service yaml from the file to the deployment yaml, then delete the service yaml)
 
-7. Deploy declaritive configuration yaml
+7. Create declaritive configuration yaml for currency-conversion-service
+- `kubectl get deployments`
+- cd into `/kubernetes/currency-conversion-service`
+- `kubectl get deployment currency-conversion-kubernetes -o yaml > deployment.yaml` - save yaml for existing deployment
+- `kubectl get service currency-conversion-kubernetes -o yaml > service.yaml` - save yaml for existing service (copy the service yaml from the file to the deployment yaml, then delete the service yaml)
+
+8. Deploy declaritive configuration yaml for currency-exchange-service
 - `kubectl diff -f deployment.yaml` - check diff
 - `kubectl apply -f deployment.yaml` - apply changes
 You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` to see load balancing in action
 
-8. Enable Logging and Tracing in Google Cloud
+9. Deploy declaritive configuration yaml for currency-conversion-service
+- `kubectl diff -f deployment.yaml` - check diff
+- `kubectl apply -f deployment.yaml` - apply changes
+You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP}}:8100/currency-conversion-feign/from/USD/to/INR/quantity/10` to see load balancing in action
+
+10. Enable Logging and Tracing in Google Cloud
  - In Google Cloud search `API & Services`
   - Enable API & Services
       ![Screenshot](readme/images/enable-api-services.png)
@@ -576,7 +587,7 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
   - Enable all of these:
       ![Screenshot](readme/images/enable-stack-drivers.png)
 
-9. Deploying Microservice using YAML deployment
+11. Deploying Microservice using YAML deployment
 - First delete the existing deployment and service
   - `kubectl delete all -l app=currency-exchange-kubernetes`
   - `kubectl delete all -l app=currency-conversion-kubernetes`

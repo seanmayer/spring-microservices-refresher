@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    autopilot.gke.io/resource-adjustment: '{"input":{"containers":[{"name":"smr-currency-exchange-service-kubernetes"}]},"output":{"containers":[{"limits":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"requests":{"cpu":"500m","ephemeral-storage":"1Gi","memory":"2Gi"},"name":"smr-currency-exchange-service-kubernetes"}]},"modified":true}'
+    deployment.kubernetes.io/revision: "1"
+  labels:
+    app: currency-exchange-kubernetes
+  name: currency-exchange-kubernetes
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: currency-exchange-kubernetes
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: currency-exchange-kubernetes
+    spec:
+      containers:
+      - image: seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT
+        imagePullPolicy: IfNotPresent
+        name: smr-currency-exchange-service-kubernetes
+        resources:
+          limits:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
+          requests:
+            cpu: 500m
+            ephemeral-storage: 1Gi
+            memory: 2Gi
+        securityContext:
+          capabilities:
+            drop:
+            - NET_RAW
+      restartPolicy: Always
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
+      tolerations:
+      - effect: NoSchedule
+        key: kubernetes.io/arch
+        operator: Equal
+        value: amd64
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    cloud.google.com/neg: '{"ingress":true}'
+  labels:
+    app: currency-exchange-kubernetes
+  name: currency-exchange-kubernetes
+  namespace: default
+spec:
+  allocateLoadBalancerNodePorts: true
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - port: 8000
+    protocol: TCP
+    targetPort: 8000
+  selector:
+    app: currency-exchange-kubernetes
+  sessionAffinity: None
+  type: LoadBalancer
