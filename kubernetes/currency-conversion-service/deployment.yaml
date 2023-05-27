@@ -25,6 +25,9 @@ spec:
     spec:
       containers:
       - image: seanmayerz/smr-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT
+        env:
+          - name: CURRENCY_EXCHANGE_SERVICE_HOST
+            value: currency-exchange-kubernetes
         imagePullPolicy: IfNotPresent
         name: smr-currency-conversion-service-kubernetes
         resources:
