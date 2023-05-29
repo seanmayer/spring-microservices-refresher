@@ -24,10 +24,10 @@ spec:
         app: currency-conversion-kubernetes
     spec:
       containers:
-      - image: seanmayerz/smr-currency-conversion-service-kubernetes:0.0.2-SNAPSHOT
+      - image: seanmayerz/smr-currency-conversion-service-kubernetes:0.0.1-SNAPSHOT
         env:
-          - name: CURRENCY_EXCHANGE_URI
-            value: http://currency-exchange-kubernetes
+          - name: CURRENCY_EXCHANGE_SERVICE_HOST
+            value: currency-exchange-kubernetes
         imagePullPolicy: IfNotPresent
         name: smr-currency-conversion-service-kubernetes
         resources:

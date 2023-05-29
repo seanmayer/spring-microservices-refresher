@@ -24,7 +24,7 @@ spec:
         app: currency-exchange-kubernetes
     spec:
       containers:
-      - image: seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT
+      - image: seanmayerz/smr-currency-exchange-service-kubernetes:0.0.2-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: smr-currency-exchange-service-kubernetes
         resources:

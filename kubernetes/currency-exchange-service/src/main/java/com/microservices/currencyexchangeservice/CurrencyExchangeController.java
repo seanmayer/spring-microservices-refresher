@@ -32,7 +32,7 @@ public class CurrencyExchangeController {
     }
 
     String host = environment.getProperty("HOSTNAME");
-    String version = "v11";
+    String version = "v2";
     String port = environment.getProperty("local.server.port");
     currencyExchange.setEnvironment(port + " " + host + " " + version);
 
