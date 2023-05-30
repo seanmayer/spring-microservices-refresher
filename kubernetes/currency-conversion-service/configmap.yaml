@@ -1,0 +1,7 @@
+apiVersion: v1
+data:
+  CURRENCY_EXCHANGE_URI: http://currency-exchange-kubernetes
+kind: ConfigMap
+metadata:
+  name: currency-conversion-kubernetes
+  namespace: default

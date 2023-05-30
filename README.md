@@ -599,8 +599,14 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
 - kubectl get svc --watch (wait eventually should see 2 services)
 - `curl http://{{EXTERNAL-IP}}:8000/currency-exchange/from/USD/to/INR` - get external ip from `kubectl get svc` command
 
-
-  
+12. Deploying Microservice using YAML deployment with ConfigMap
+- kubectl create configmap currency-conversion-kubernetes --from-literal=CURRENCY_EXCHANGE_SERVICE_URI=http://currency-exchange-kubernetes
+- kubectl get configmap
+- kubectl get configmap currency-conversion-kubernetes
+- kubectl get configmap currency-conversion-kubernetes -o yaml
+- kubectl get configmap currency-conversion-kubernetes -o yaml > configmap.yaml
+- copy the configmap yaml to the deployment yaml
+- kubectl apply -f deployment.yaml
   
 
 ## Issues
