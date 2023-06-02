@@ -607,7 +607,14 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
 - kubectl get configmap currency-conversion-kubernetes -o yaml > configmap.yaml
 - copy the configmap yaml to the deployment yaml
 - kubectl apply -f deployment.yaml
-  
+
+13. Monitoring centralised logging in GKE
+- Go to `https://console.cloud.google.com/kubernetes/list/overview`
+- Click on the cluster
+- Click on `View Logs`
+- Click on `View GKE Dashboard`
+  ![Screenshot](readme/images/kubenetes-engine-view-logs-and-gke-dashboard.png)
+
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
