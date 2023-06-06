@@ -614,7 +614,14 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
 - Click on `View Logs`
 - Click on `View GKE Dashboard`
   ![Screenshot](readme/images/kubenetes-engine-view-logs-and-gke-dashboard.png)
-
+- Click on `Workloads`
+- Click on `currency-conversion-kubernetes`
+- Click on `currency-conversion-kubernetes-xxxxx`
+- Click on `View Logs`
+  ![Screenshot](readme/images/kubenetes-engine-view-logs.png)
+- Click on `Workloads`
+- Click on `currency-exchange-kubernetes`
+- Click on `currency-exchange-kubernetes-xxxxx`
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
