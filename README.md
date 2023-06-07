@@ -613,15 +613,46 @@ You could update the replicas here and then use `watch curl http://{{EXTERNAL-IP
 - Click on the cluster
 - Click on `View Logs`
 - Click on `View GKE Dashboard`
-  ![Screenshot](readme/images/kubenetes-engine-view-logs-and-gke-dashboard.png)
 - Click on `Workloads`
 - Click on `currency-conversion-kubernetes`
 - Click on `currency-conversion-kubernetes-xxxxx`
 - Click on `View Logs`
-  ![Screenshot](readme/images/kubenetes-engine-view-logs.png)
 - Click on `Workloads`
 - Click on `currency-exchange-kubernetes`
 - Click on `currency-exchange-kubernetes-xxxxx`
+
+14. Deployments and Rollbacks
+
+- `kubectl rollout history deployment currency-exchange-kubernetes` (shows the rollout history)
+```
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+```
+- `kubectl rollout history deployment currency-exchange-kubernetes --revision=1` (shows the details of the revision)
+```
+deployment.apps/currency-exchange-kubernetes with revision #1
+Pod Template:
+  Labels:       app=currency-exchange-kubernetes
+        pod-template-hash=747c98bcf7
+  Containers:
+   smr-currency-exchange-service-kubernetes:
+    Image:      seanmayerz/smr-currency-exchange-service-kubernetes:0.0.1-SNAPSHOT
+    Port:       <none>
+    Host Port:  <none>
+    Limits:
+      cpu:      500m
+      ephemeral-storage:        1Gi
+      memory:   2Gi
+    Requests:
+      cpu:      500m
+      ephemeral-storage:        1Gi
+      memory:   2Gi
+    Environment:        <none>
+    Mounts:     <none>
+  Volumes:      <none>
+  ```
+- `kubectl rollout undo deployment currency-exchange-kubernetes` (roll back to previous version)
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
