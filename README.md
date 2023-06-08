@@ -654,6 +654,66 @@ Pod Template:
   ```
 - `kubectl rollout undo deployment currency-exchange-kubernetes` (roll back to previous version)
 
+15. Deploying Microservice using YAML deployment with Secrets
+
+- `kubectl create secret generic currency-conversion-kubernetes --from-literal=CURRENCY_EXCHANGE_SERVICE_URI=http://currency-exchange-kubernetes`
+- `kubectl get secrets`
+- `kubectl get secrets currency-conversion-kubernetes`
+- `kubectl get secrets currency-conversion-kubernetes -o yaml`
+- `kubectl get secrets currency-conversion-kubernetes -o yaml > secrets.yaml`
+- copy the secrets yaml to the deployment yaml
+- `kubectl apply -f deployment.yaml`
+
+16. Configuring Readiness and Liveness Probes
+
+Kuberentes will check the health of the pod and if it's not healthy, it will restart the pod, and if it's still not healthy, it will restart the pod again and again. This is called `Liveness Probe`.
+
+Kubernetes will check if the pod is ready to serve the request. If it's not ready, it will not send the request to the pod. This is called `Readiness Probe`.
+
+Spring Boot Actuator provides `/actuator/health` endpoint which can be used for readiness and liveness probes. 
+- /health/readiness - for readiness probe
+- /health/liveness - for liveness probe
+
+We have this configured in `application.properties` file.
+
+```
+management.endpoint.health.probes.enabled=true
+management.health.livenessState.enabled=true
+management.health.readinessState.enabled=true
+```
+
+How to test this?
+
+- `kubectl get svc` - get the external ip
+- `watch curl http://{{EXTERNAL-IP}}:8000/actuator/health` - watch the health status
+- `watch curl http://{{EXTERNAL-IP}}:8000/actuator/health/liveness` - watch the liveness status
+```
+{
+    "status": "UP"
+}
+```
+- `watch curl http://{{EXTERNAL-IP}}:8000/actuator/health/readiness` - watch the readiness status
+```
+{
+    "status": "UP"
+}
+```
+Add to deployment.yaml
+
+```
+  readinessProbe:
+    httpGet:
+      path: /actuator/health/readiness
+      port: 8000
+  livenessProbe:
+    httpGet:
+      path: /actuator/health/liveness
+      port: 8000
+```
+
+- `kubectl apply -f deployment.yaml`
+
+
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
 - This is a known issue https://github.com/microsoft/vscode-java-debug/issues/606, https://github.com/eclipse/eclipse.jdt.ls/issues/1137, which caused the new package not recognized during building workspace. It's expected to be fixed in vscode-java Middle October release.

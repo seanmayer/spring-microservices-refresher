@@ -27,6 +27,14 @@ spec:
       - image: seanmayerz/smr-currency-exchange-service-kubernetes:0.0.2-SNAPSHOT
         imagePullPolicy: IfNotPresent
         name: smr-currency-exchange-service-kubernetes
+        readinessProbe:
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8000
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8000
         resources:
           limits:
             cpu: 500m
