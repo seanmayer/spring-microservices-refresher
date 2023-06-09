@@ -713,6 +713,11 @@ Add to deployment.yaml
 
 - `kubectl apply -f deployment.yaml`
 
+## Bonus
+
+### Deleting pods
+- `kubectl get pods`
+- `kubectl delete pod currency-exchange-kubernetes-xxxxx`
 
 ## Issues
 ### Running multiple springboot microservice projects in VSCode (Without Docker)
