@@ -713,6 +713,29 @@ Add to deployment.yaml
 
 - `kubectl apply -f deployment.yaml`
 
+17. Scaling pods manually
+
+- `kubectl get pods`
+- `kubectl scale --replicas=3 deployment currency-exchange-kubernetes` - scale the deployment to 3 replicas
+
+18. Scaling pods automatically
+
+- `kubectl get hpa` - get the horizontal pod autoscaler
+- `kubectl autoscale deployment currency-exchange-kubernetes --cpu-percent=50 --min=1 --max=3` - create the horizontal pod autoscaler
+
+19. Checking resources
+
+- `kubectl top pods` - get the cpu and memory usage of the pods
+- `kubectl top nodes` - get the cpu and memory usage of the nodes
+
+20. Deleting autoscaler
+
+- `kubectl delete hpa currency-exchange-kubernetes`
+
+21. Deleting Cluster in GKE
+
+![Screenshot](readme/images/k8s-delete-cluster.png)
+
 ## Bonus
 
 ### Deleting pods
